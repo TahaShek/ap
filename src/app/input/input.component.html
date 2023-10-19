@@ -1,0 +1,13 @@
+<input
+  [min]="minDate"
+  [max]="maxDate"
+  [id]="label"
+  [name]="label"
+  [type]="type"
+  [(ngModel)]="input"
+  (ngModelChange)="onchange($event)"
+  (blur)="onBlur()"
+
+
+  class="appearance-none block w-full px-2 py-2.5 border border-gray-300 placeholder-gray-500 focus:outline-none sm:text-sm rounded-md"
+/>

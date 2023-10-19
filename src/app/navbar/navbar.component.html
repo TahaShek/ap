@@ -1,0 +1,53 @@
+<header class="sticky top-0 z-50 bg-[#c8102e] lg:block hidden md:hidden">
+  <nav>
+    <div class="container mx-auto px-4">
+      <div class="flex items-center py-4 justify-between">
+        <div class="flex items-center">
+          <a routerLink="/" class="text-white text-2xl font-bold">ValueSoft</a>
+
+          <div class="flex items-center ml-12">
+            <div *ngFor="let item of navItems">
+              <ng-container *ngIf="item.roles.includes(currentUserRole)">
+                <ng-container *ngIf="!item.children; else dropdownMenu">
+                  <a
+                    [routerLink]="item.path"
+                    routerLinkActive="active-link"
+                    class="nav-link font-semibold px-2 py-2 text-white text-sm"
+                    >{{ item.label }}</a
+                  >
+                </ng-container>
+
+                <ng-template #dropdownMenu>
+                  <!-- <div mat-button [matMenuTriggerFor]="menu">
+                    {{ item.label }}
+                    <mat-icon class="chevron">keyboard_arrow_down</mat-icon>
+                  </div>
+             -->
+                  <!-- <mat-menu #menu="matMenu">
+                    <button mat-menu-item *ngFor="let child of item.children" [routerLink]="child.path">
+                      {{ child.label }}
+                    </button>
+                  </mat-menu> -->
+                </ng-template>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-4">
+          <ng-container *ngFor="let item of navItems">
+            <ng-container
+              *ngIf="item.roles.includes(currentUserRole) && item.icon"
+            >
+              <a
+
+                class="text-white  transition-all duration-300">
+                <i [class]="item.icon"></i>
+              </a>
+            </ng-container>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

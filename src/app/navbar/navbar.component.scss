@@ -1,0 +1,57 @@
+.active-link {
+  background-color: white;
+  color: #c8102e;
+  border-radius: 2px;
+}
+
+i {
+  font-size: 20px; /* Adjust the font size */
+  margin-right: 10px; /* Add some spacing */
+  // color: white;
+}
+
+@media (max-width: 768px) {
+  .navbar-burger {
+    display: block;
+  }
+
+  .nav-items {
+    display: none;
+  }
+
+  .nav-items.active {
+    display: block;
+  }
+}
+
+.navbar-burger {
+  border: none;
+  background-color: transparent;
+}
+
+/* Remaining styles should work as is */
+/* CSS for a navigation link */
+.nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: rgba(255, 255, 255, 0.372) !important;
+  z-index: -1;
+  border-radius: 5px; /* Adjust the border-radius as needed */
+}
+
+.active-link {
+  background-color: rgba(255, 255, 255, 0.2); /* Adjust opacity as needed */
+  border-radius: 5px;
+  color: #c8102e;
+}
+
+/* ... (your existing CSS) ... */

@@ -1,0 +1,31 @@
+<div class="flex">
+  <div [ngClass]="open ? 'w-72' : 'w-20'"
+       class="bg-dark-purple h-screen p-5 pt-8 relative duration-300">
+    <img src="./src/assets/control.png"
+         class="absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple border-2 rounded-full"
+         (click)="toggleSidebar()" />
+    <div class="flex gap-x-4 items-center">
+      <img src="./src/assets/logo.png"
+           class="cursor-pointer duration-500"
+           [class.rotate-360]="open" />
+      <h1 class="text-white origin-left font-medium text-xl duration-200"
+          [ngClass]="{ 'scale-0': !open }">
+        Designer
+      </h1>
+    </div>
+    <ul class="pt-6">
+      <ng-container *ngFor="let menu of menus; let index = index">
+        <li
+            class="flex rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4">
+          <img [src]="'./src/assets/' + menu.src + '.png'" />
+          <span [ngClass]="{ 'hidden': !open, 'origin-left duration-200': true }">
+            {{ menu.title }}
+          </span>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+  <div class="h-screen flex-1 p-7">
+    <h1 class="text-2xl font-semibold">Home Page</h1>
+  </div>
+</div>

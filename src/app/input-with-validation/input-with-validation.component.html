@@ -1,0 +1,17 @@
+<input
+  [id]="label"
+  [name]="label"
+  [type]="type"
+  [(ngModel)]="input"
+  (ngModelChange)="onchange($event)"
+  (focus)="onFocus()"
+
+  (blur)="onBlur()"
+
+  class="appearance-none block w-full px-2 py-2.5 border border-gray-300 placeholder-gray-500 focus:outline-none sm:text-sm rounded-md"
+/>
+
+<div *ngIf="isInvalid()" class="text-red-500 text-sm mt-2">
+  <div *ngIf="inputCtrl.errors?.['required'] && blurred">This field is required.</div>
+  <div *ngIf="inputCtrl.errors?.['pattern'] && blurred">Invalid format.</div>
+</div>

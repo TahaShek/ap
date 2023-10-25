@@ -1,0 +1,33 @@
+.table-container {
+  @apply p-6 bg-gray-200;
+}
+
+.table {
+  th {
+    @apply p-4 bg-gray-300;
+  }
+
+  td {
+    @apply p-4 border-t border-gray-300;
+  }
+
+  .defect-button {
+    @apply mr-2 bg-gray-200 px-4 py-1 rounded-md text-sm;
+  }
+
+  .status-circle {
+    @apply inline-block w-5 h-5 mr-2 rounded-full;
+
+    &.in-progress {
+      @apply bg-orange-500;
+    }
+
+    &.completed {
+      @apply bg-green-500;
+    }
+  }
+
+  .icon {
+    // Add your custom icon styles here
+  }
+}

@@ -1,4 +1,39 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<div class="table-container">
+  <div class="mb-6 font-semibold text-xl">Civil</div>
+  <table class="table w-full">
+    <thead>
+      <tr>
+        <th>Ref</th>
+        <th>Item</th>
+        <th>Status</th>
+        <th>Priority</th>
+        <th>Defect</th>
+        <th>Contractor (Intermass)</th>
+        <th>Consultant (Mimar)</th>
+        <th>Client (MAG)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Door Opening Dimensions and alignment</td>
+        <td>Ready for Inspection</td>
+        <td></td>
+        <td>
+          <button class="defect-button">Replace</button>
+          <button class="defect-button">Repair</button>
+          <button class="defect-button">Missing</button>
+        </td>
+        <td><span class="status-circle in-progress"></span> In Progress</td>
+        <td><span class="status-circle in-progress"></span> In Progress</td>
+        <td><span class="icon"></span></td>
+      </tr>
+      <!-- Add more rows as needed -->
+    </tbody>
+  </table>
+</div>
+
+<!-- <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <ng-container *ngFor="let field of fields">
     <div class="grid grid-cols-2">
       <app-input
@@ -15,7 +50,7 @@
     </div>
   </ng-container>
   <button type="submit">Submit</button>
-</form>
+</form> -->
 <!-- <app-navbar></app-navbar>
 <router-outlet></router-outlet> -->
 <!-- // pattern: '^[0-9]+$', -->

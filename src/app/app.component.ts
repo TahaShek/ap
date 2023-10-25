@@ -25,6 +25,7 @@ export interface Field {
 })
 export class AppComponent implements OnInit {
   title = 'ap';
+
   calculatedMinDates: { [key: string]: string } = {};
   calculatedMaxDates: { [key: string]: string } = {};
 
@@ -55,6 +56,7 @@ export class AppComponent implements OnInit {
       inputType: 'date',
       dependsOn: [{ controlName: 'startDate', type: 'after' }],
     },
+
   ];
 
   form!: FormGroup;
@@ -80,9 +82,7 @@ export class AppComponent implements OnInit {
     value: string | null
   ) {
     const targetDate =
-      dependency.type === 'before'
-        ? 'calculatedMaxDates'
-        : 'calculatedMinDates';
+      dependency.type === 'before' ?'calculatedMaxDates':'calculatedMinDates';
 
     if (value) {
       // Apply the min or max date based on the dependency type

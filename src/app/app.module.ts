@@ -22,6 +22,7 @@ import { AssetComponent } from './asset/asset.component';
 import {MatInputModule} from '@angular/material/input';
 import { MatFormField } from '@angular/material/form-field';
 import { MatLabel } from '@angular/material/form-field';
+import { InputWithValidationComponent } from './input-with-validation/input-with-validation.component';
 
 
 
@@ -39,7 +40,8 @@ import { MatLabel } from '@angular/material/form-field';
     AssetItemsComponent,
     ItemDetailsComponent,
     BreadcrumbComponent,
-    AssetComponent
+    AssetComponent,
+    InputWithValidationComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ import { MatLabel } from '@angular/material/form-field';
   providers: [],
   exports:[
     SidebarComponent,
-    NavbarComponent
+    NavbarComponent,
+    InputWithValidationComponent
   ],
   bootstrap: [AppComponent]
 })

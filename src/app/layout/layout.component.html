@@ -1,1 +1,16 @@
-<p>layout works!</p>
+<!-- <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <ng-container *ngFor="let field of fields">
+    <div class="grid grid-cols-2">
+      <app-input-with-validation
+      *ngIf="field.type === 'input'"
+      [label]="field.label"
+      [_mandatory]="field.mandatory"
+      [type]="field.inputType || 'text'"
+      [inputCtrl]="form.controls[field.controlName] "
+      formControlName="{{ field.controlName }}"
+    ></app-input-with-validation>
+
+    </div>
+  </ng-container>
+  <button type="submit">Submit</button>
+</form> -->

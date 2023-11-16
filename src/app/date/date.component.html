@@ -1,0 +1,9 @@
+<p-calendar
+    [(ngModel)]="value"
+    [minDate]="minDate"
+    [maxDate]="maxDate"
+    (ngModelChange)="onDateChange($event)"
+    (onBlur)="onTouched()"
+    styleClass="w-[100%]"
+    dateFormat="yy-mm-dd">
+</p-calendar>

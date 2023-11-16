@@ -1,4 +1,35 @@
-<div class="table-container">
+<!-- <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <ng-container *ngFor="let field of fields">
+    <div class="grid grid-cols-2">
+      <app-input-with-validation
+      *ngIf="field.type === 'input'"
+      [label]="field.label"
+      [_mandatory]="field.mandatory"
+      [type]="field.inputType || 'text'"
+      [inputCtrl]="form.controls[field.controlName] "
+      [pattern]="field.pattern || ''"
+      formControlName="{{ field.controlName }}"
+    ></app-input-with-validation>
+
+    </div>
+  </ng-container>
+  <button type="submit">Submit</button>
+</form> -->
+<!--
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <form [formGroup]="form">
+    <ng-container *ngFor="let date of dateFields">
+      <app-date
+      formControlName="{{ date.controlName }}"
+      ></app-date>
+    </ng-container>
+</form>
+
+
+  <button type="submit">submit</button>
+</form> -->
+
+<!-- <div class="table-container">
   <div class="mb-6 font-semibold text-xl">Civil</div>
   <table class="table w-full">
     <thead>
@@ -28,11 +59,10 @@
         <td><span class="status-circle in-progress"></span> In Progress</td>
         <td><span class="icon"></span></td>
       </tr>
-      <!-- Add more rows as needed -->
     </tbody>
   </table>
-</div>
-
+</div> -->
+<router-outlet></router-outlet>
 <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <ng-container *ngFor="let field of fields">
     <div class="grid grid-cols-2">

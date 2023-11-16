@@ -25,44 +25,63 @@ export interface Field {
 })
 export class AppComponent implements OnInit {
   title = 'ap';
+  maxStartDate!: Date;
+  minEndDate!: Date;
 
   calculatedMinDates: { [key: string]: string } = {};
+
   calculatedMaxDates: { [key: string]: string } = {};
 
   fields: Field[] = [
-    {
-      type: 'input',
-      label: 'Start Date',
-      mandatory: false,
-      controlName: 'startDate',
-      inputType: 'date',
+    // {
+    //   type: 'input',
+    //   label: 'Start Date',
+    //   mandatory: false,
+    //   controlName: 'startDate',
+    //   inputType: 'date',
 
-      dependsOn: [{ controlName: 'endDate', type: 'before' }],
-    },
+    //   dependsOn: [{ controlName: 'endDate', type: 'before' }],
+    // },
     {
       type: 'input',
       label: 'assets',
       mandatory: false,
       controlName: 'email',
       inputType: 'text',
-      pattern: '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$',
-      validators: [Validators.required],
+      // pattern: '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$',
+      // validators: [Validators.required],
     },
-    {
-      type: 'input',
-      label: 'assets',
-      mandatory: false,
-      controlName: 'endDate',
-      inputType: 'date',
-      dependsOn: [{ controlName: 'startDate', type: 'after' }],
-    },
+    // {
+    //   type: 'input',
+    //   label: 'assets',
+    //   mandatory: false,
+    //   controlName: 'endDate',
+    //   inputType: 'date',
+    //   dependsOn: [{ controlName: 'startDate', type: 'after' }],
+    // },
 
   ];
 
+  dateFields:any=[
+    {
+      controlName:'startDate'
+
+    },
+    {
+      controlName:'startDate'
+
+    }
+  ]
   form!: FormGroup;
 
   constructor(private fb: FormBuilder) {
-    this.formInit();
+    // this.formInit();
+    this.form = this.fb.group({
+      startDate: [null],
+      endDate: [null]
+    });
+
+
   }
   private setMinMaxDates(field: Field) {
     if (field.dependsOn) {
@@ -98,6 +117,7 @@ export class AppComponent implements OnInit {
       this.setMinMaxDates(field);
     });
   }
+
 
   formInit() {
     const group: { [key: string]: any } = {};

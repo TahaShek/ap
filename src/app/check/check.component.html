@@ -1,1 +1,51 @@
-<p>check works!</p>
+<!-- check.component.html -->
+<form [formGroup]="calculatorForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="serviceFee">Service Fee:</label>
+    <input type="text" id="serviceFee" formControlName="serviceFee" required>
+  </div>
+
+  <div>
+    <label for="taxPercentage">Tax Percentage:</label>
+    <input type="text" id="taxPercentage" formControlName="taxPercentage" required>
+  </div>
+
+  <div>
+    <label for="advancePercentage">Advance Percentage:</label>
+    <input type="text" id="advancePercentage" formControlName="advancePaymentPercentage" required>
+  </div>
+
+  <div>
+    <label for="finalPercentage">Final Percentage:</label>
+    <input type="text" id="finalPercentage" formControlName="finalPaymentPercentage" required>
+  </div>
+
+  <div>
+    <label for="draftPercentage">Draft Percentage:</label>
+    <input type="text" id="draftPercentage" formControlName="paymentOnDraftPercentage" required>
+  </div>
+
+  <div>
+    <label>Total Fee After Tax:</label>
+    <input type="text" [value]="totalFeeAfterTax()" readonly formControlName="totalFee">
+  </div>
+
+  <div>
+    <label>Amount for Advance:</label>
+    <input type="text" [value]="calculateAmount('advancePaymentPercentage')" readonly formControlName="advancePayment">
+  </div>
+
+  <div>
+    <label>Amount for Final:</label>
+    <input type="text" [value]="calculateAmount('finalPaymentPercentage')" readonly formControlName="finalPayment">
+  </div>
+
+  <div>
+    <label>Amount for Draft:</label>
+    <input type="text" [value]="calculateAmount('paymentOnDraftPercentage')" readonly formControlName="paymentOnDraft">
+  </div>
+
+  <!-- Percentage Breakdown -->
+
+  <button type="submit">Submit</button>
+</form>

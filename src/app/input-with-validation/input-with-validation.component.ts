@@ -1,4 +1,4 @@
-import { Component, Input, forwardRef } from '@angular/core';
+import { Component, EventEmitter, Input, Output, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, FormControl, Validator, AbstractControl } from '@angular/forms';
 
 @Component({
@@ -20,11 +20,15 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, FormControl, Va
 })
 export class InputWithValidationComponent implements ControlValueAccessor,Validator {
   @Input() inputCtrl!: AbstractControl;
+  @Input() showValidation: boolean = true;
+  @Output() showValidationChange = new EventEmitter<boolean>();
 
   input: string = ''; // Initialize input as an empty string
   @Input() label!: string;
   @Input() _mandatory: boolean = false;
   @Input() type!: string;
+  @Input() pattern: string = ''; // Accept any pattern as input
+
   blurred = false;
 
   onchange: any = () => {};
@@ -49,14 +53,25 @@ export class InputWithValidationComponent implements ControlValueAccessor,Valida
   }
 
   isInvalid() {
-    return this.inputCtrl?.invalid && this.blurred;
-}
+    return this.showValidation && this.inputCtrl?.invalid && this.blurred;
+  }
 
   onBlur() {
     this.blurred = true;
   }
   onFocus() {
     this.blurred = false;
+    this.showValidationChange.emit(true); // Emitting true when input is focused
+  }
+
+handleKeypress(event: KeyboardEvent): void {
+    // Create a RegExp based on the input pattern
+    const regex = new RegExp(this.pattern);
+
+    // If the character doesn't match the pattern, prevent the input
+    if (!regex.test(event.key)) {
+        event.preventDefault();
+    }
 }
 
 

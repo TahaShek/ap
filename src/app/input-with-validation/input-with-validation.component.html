@@ -5,6 +5,8 @@
   [(ngModel)]="input"
   (ngModelChange)="onchange($event)"
   (focus)="onFocus()"
+  (keypress)="handleKeypress($event)"
+
 
   (blur)="onBlur()"
 

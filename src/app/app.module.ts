@@ -23,6 +23,11 @@ import {MatInputModule} from '@angular/material/input';
 import { MatFormField } from '@angular/material/form-field';
 import { MatLabel } from '@angular/material/form-field';
 import { InputWithValidationComponent } from './input-with-validation/input-with-validation.component';
+import {ButtonModule} from 'primeng/button';
+import { DateComponent } from './date/date.component';
+import {CalendarModule} from 'primeng/calendar';
+
+
 
 
 
@@ -41,7 +46,8 @@ import { InputWithValidationComponent } from './input-with-validation/input-with
     ItemDetailsComponent,
     BreadcrumbComponent,
     AssetComponent,
-    InputWithValidationComponent
+    InputWithValidationComponent,
+    DateComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,8 @@ import { InputWithValidationComponent } from './input-with-validation/input-with
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-
+    ButtonModule,
+    CalendarModule
   ],
   providers: [],
   exports:[

@@ -26,6 +26,9 @@ import { InputWithValidationComponent } from './input-with-validation/input-with
 import {ButtonModule} from 'primeng/button';
 import { DateComponent } from './date/date.component';
 import {CalendarModule} from 'primeng/calendar';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
+
 
 
 
@@ -56,7 +59,9 @@ import {CalendarModule} from 'primeng/calendar';
     FormsModule,
     ReactiveFormsModule,
     ButtonModule,
-    CalendarModule
+    CalendarModule,
+    MatMenuModule,
+    MatIconModule
   ],
   providers: [],
   exports:[

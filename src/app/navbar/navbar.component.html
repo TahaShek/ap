@@ -18,16 +18,25 @@
                 </ng-container>
 
                 <ng-template #dropdownMenu>
-                  <!-- <div mat-button [matMenuTriggerFor]="menu">
-                    {{ item.label }}
-                    <mat-icon class="chevron">keyboard_arrow_down</mat-icon>
+                  <div class="nav-dropdown">
+                    <a
+                      [routerLink]="item.path"
+                      [matMenuTriggerFor]="menu"
+                      routerLinkActive="active-link"
+                      class="nav-link font-semibold text-white text-sm"
+                    >
+                      <div class="nav-item-content">
+                        <span>{{ item.label }}</span>
+                        <span><i class='text-white bx bx-chevron-down'></i></span>
+                      </div>
+                    </a>
                   </div>
-             -->
-                  <!-- <mat-menu #menu="matMenu">
+
+                  <mat-menu #menu="matMenu">
                     <button mat-menu-item *ngFor="let child of item.children" [routerLink]="child.path">
                       {{ child.label }}
                     </button>
-                  </mat-menu> -->
+                  </mat-menu>
                 </ng-template>
               </ng-container>
             </div>
